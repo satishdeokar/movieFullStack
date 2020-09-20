@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-8">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+   
+</div>
+<div class="mat-elevation-z8" >
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column| titlecase}} </th>
+      <td mat-cell *matCellDef="let element">
+
+        <div *ngIf="column !== 'action'">
+          <span> {{element[column]}} </span>
+        </div>
+        <div *ngIf="column == 'action'"  >
+          <span style="cursor: pointer;margin: 0 10px 0 10px;" *ngFor="let item of element[column]" (click)="onTableAction(item, element )"> <mat-icon aria-hidden="false" aria-label="Example item icon">{{item}}</mat-icon></span>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="total" [pageSize]="recordPerPage" [pageSizeOptions]="pageSizeOptions"
+    (page)="onChangedPage($event)" showFirstLastButtons></mat-paginator>
+</div>

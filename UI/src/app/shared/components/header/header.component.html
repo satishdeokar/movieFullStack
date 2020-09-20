@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top"
+    style="background-color: #18225d !important;color: #fff !important;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#" style="color: #fff;">
+        <img src="../../../../assets/images/browserslist.png" alt="Google Logo Logo" height="35px"> </a>
+    <button mat-icon-button (click)="onToggleSidenav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+             
+        </ul>
+
+        <form class="form-logout my-2 my-lg-0">
+            <a (click)="login()" style="color:#fff;" *ngIf="!isLogin">Login</a>
+            <a (click)="logOut()" style="color:#fff;" *ngIf="isLogin">Logout</a>
+
+        </form>
+    </div>
+</nav>

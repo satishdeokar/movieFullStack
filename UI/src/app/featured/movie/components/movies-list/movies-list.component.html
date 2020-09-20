@@ -1,0 +1,46 @@
+<div class="container pt-4">
+    <div class="row">
+      <mat-toolbar color="primary">
+        <span class="fill-remaining-space">Movie List</span>
+      </mat-toolbar>
+      <!-- <div class="col-md-2"></div> -->
+      <div class="col-md-12">
+        <mat-form-field class="pt-4">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+          <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;let i=index">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column| titlecase}} </th>
+            <td mat-cell *matCellDef="let element">
+              <div *ngIf="column !== 'dateReleased' && column !== 'bannerUrl'">
+                <span> {{element[column] }} </span>
+              </div>
+              <div *ngIf="column === 'dateReleased'">
+                <span> {{element[column] | date }} </span>
+              </div>
+              <div *ngIf="column === 'bannerUrl'">
+                
+                    <img src="{{element[column]}}" height="50" width="50">
+              </div>
+              <div *ngIf="column == 'action'">
+                <span (click)="edit(element, i)">
+                  <mat-icon>edit</mat-icon>
+                </span> <span (click)="delete(element, i)">
+                  <mat-icon>delete</mat-icon>
+                </span>
+              </div>
+            </td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [length]="total" [pageSize]="recordPerPage" [pageSizeOptions]="pageSizeOptions"
+          (page)="onChangedPage($event)" showFirstLastButtons></mat-paginator>
+  
+      </div>
+      <!-- <div class="col-md-2"></div> -->
+    </div>
+  </div>
+  

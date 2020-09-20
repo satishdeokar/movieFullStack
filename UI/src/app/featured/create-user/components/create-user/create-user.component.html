@@ -1,0 +1,61 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <h4 style="font-family:lato;">Create User</h4>
+        </li>
+    </ol>
+</nav>
+<div class="row">
+    
+    <div class="col-md-12" style="display:flex;justify-content:center;align-items:center">
+        <mat-card class="example-card">
+            <mat-card-header class="card-header">
+                <mat-card-title>Create User</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row pt-2 pb-5">
+                     
+                    <div class="col-md-12 ">
+                       <h5 class="text-center"> {{errorMessage}} </h5>
+                    </div>
+                     
+                </div>
+                <div class="row pt-2 pb-5">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+                            <div>
+                                <mat-form-field class="pt1">
+                                    <input matInput placeholder="Username" formControlName="username">
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field class="pt1">
+                                    <input type="email"  email="true" matInput placeholder="Email address" formControlName="email_address">
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field class="pt1">
+                                    <input type="password" matInput placeholder="Password" formControlName="password">
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field class="pt1">
+                                    <input type="text" matInput placeholder="Address" formControlName="address">
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field class="pt1">
+                                    <input type="number" matInput placeholder="Mobile Number" formControlName="mobileNumber">
+                                </mat-form-field>
+                            </div>
+                            <button [disabled]="!createUserForm.valid" mat-raised-button color="primary" class="btn btn-lg btn-block" mat-button>
+                                Save 
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

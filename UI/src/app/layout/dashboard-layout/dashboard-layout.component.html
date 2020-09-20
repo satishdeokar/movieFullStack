@@ -1,0 +1,29 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <app-header (sidenavToggle)="snav.toggle()"></app-header>
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav opened="true" disableClose="true" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [ngStyle]="{ 'width.em': 14 }">
+      <mat-nav-list>
+        <a mat-list-item *ngFor="let nav of fillerNav" [routerLink]="nav.route" routerLinkActive="router-active">
+            <mat-icon aria-hidden="false" aria-label="Example item icon" style="margin-right:10px;">{{nav?.icon}}</mat-icon>{{nav?.name}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="container">
+        <div class="row pt-5">
+          <div class="col-md-9">
+            <router-outlet></router-outlet>
+          </div>
+          <div class="col-md-3">
+            <app-important-link></app-important-link>
+          </div>
+      </div>
+      </div>
+      
+    </mat-sidenav-content>
+    
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</div>
+

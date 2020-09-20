@@ -1,0 +1,25 @@
+mat-card{
+    padding: 0px;
+    
+}
+mat-card li a{
+    // font-size: 12px;
+    color: black;
+    text-decoration: none;
+}
+mat-card .card-header{
+    background-color: #101011db;
+    color: #FFFFFF;
+}
+mat-card ul li a{
+    cursor: pointer;
+}
+.pt-1{
+    transform: scale(1);
+    transition: all ease-in-out;
+}
+.pt-1 :hover {
+    font-weight: bold;
+    transform: scale(1.2);
+    transition: all ease-in-out;
+}

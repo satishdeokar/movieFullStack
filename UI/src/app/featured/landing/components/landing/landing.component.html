@@ -1,0 +1,40 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My Movie Application</span>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button class="example-icon" style="margin-right: 30px;">
+      <a (click)="login()" style="color:#fff;" mat-raised-button color="accent">Login</a>
+    </button>
+  </mat-toolbar>
+</p>
+
+<div class="row">
+
+  <div class="col-md-12" style="display:flex;justify-content:center;align-items:center" *ngIf="moviesList">
+    <div *ngFor="let movie of moviesList">
+      <mat-card class="example-card" style="margin:30px">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title> {{movie.title}}</mat-card-title>
+        <mat-card-subtitle>{{movie.dateReleased | date}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image height="200"  src="{{movie.bannerUrl}}" alt="{{movie.bannerUrl}}">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  </div>
+</div>
