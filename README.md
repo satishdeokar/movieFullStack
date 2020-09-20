@@ -12,3 +12,9 @@ Movie app using the ANGULAR 10, NODEJS , Express, and mongoDB
     > npm install
     > ng serve
 
+
+# Test Username Password
+
+UserName : Admin
+Pass : Admin123
+
